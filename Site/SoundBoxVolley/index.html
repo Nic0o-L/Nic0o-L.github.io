@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,28 @@
     <link rel="stylesheet" href="style.css">
     <title>SoundBox Volley</title>
 </head>
+
 <body>
     <div class="container">
+        <button id="stop" onClick="play_sound(this.id)">Stop</button>
         <div class="center">
-            <button id="monsterBlock" onClick="play_sound(this.id)">Monster Block</button>
-          <button id="boo">boo</button>
-          <button id="victory">victory</button>
-          <button id="nope">nope</button>
-          <button id="gasp">gasp</button>
+            <audio src="sounds/monsterBlock.mp3" id="radio" class="hidden" preload="none">test</audio>
+            <button id="monsterBlock" onClick="play_sound(this.id)" ontimeupdate="update(this)">Monster
+                Block</button>
+            <button id="weCanFly" onClick="play_sound(this.id)" ontimeupdate="update(this)">We Can Fly</button>
+            <button id="victory">victory</button>
+            <button id="nope">nope</button>
+            <button id="gasp">gasp</button>
         </div>
-      </div>
+    </div>
 </body>
+
 </html>
 
 <script>
-    function play_sound(clicked_id) {
-    var audio = new Audio("sounds/" + clicked_id + ".mp3");
-    audio.play();
-  }
+    function play_sound() {
+        var player = document.getElementById('radio');
+        player.pause();
+        player.src = player.src;
+    }
 </script>
